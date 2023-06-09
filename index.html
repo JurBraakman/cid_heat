@@ -61,13 +61,13 @@
     }).addTo(map)
 
     // Read data from CSV file
-    $.get('./data.csv', function(csvString) {
+    $.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vQVlW6q3gwKu6psd7qfn9N0zXwrv0RLPtA4qC3MPkgvyOqfxMrfRDbLVhESRoHNmSUG9BiW1UwZ8Y0w/pub?gid=164271551&single=true&output=csv', function(csvString) {
 
       // Use PapaParse to transform file into arrays
       var data = Papa.parse(csvString.trim()).data.filter(
         function(row) { return row.length === 2 }
       ).map(function(a) {
-        return [ parseFloat(a[0]), parseFloat(a[1]) ]
+        return [ parseFloat(a[9]), parseFloat(a[10]) ]
       })
 
       // Add all points into a heat layer
